@@ -9,20 +9,17 @@ searchBtnEl.addEventListener('click', () => {
 
 
 function getPropertyApi(citySearch){
-    const options = {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": "44a9dd568emshc2dbe79a2be69f1p1adfdejsnec1e21b078cd",
-        "X-RapidAPI-Host": "realty-in-us.p.rapidapi.com",
-      },
-    };
-    
-    fetch(
-      "https://realty-in-us.p.rapidapi.com/properties/v3/get-commute-time?destination_address=%3CREQUIRED%3E&property_id=%3CREQUIRED%3E&transportation_type=walking&with_traffic=false",
-      options
-    )
-      .then((response) => response.json())
-      .then((response) => console.log(response))
-      .catch((err) => console.error(err));
+  const location = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': '44a9dd568emshc2dbe79a2be69f1p1adfdejsnec1e21b078cd',
+      'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com'
+    }
+  };
+  
+  fetch(`https://realty-in-us.p.rapidapi.com/locations/v2/auto-complete?input=${citySearch}&limit=10`, location)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
 
 };
