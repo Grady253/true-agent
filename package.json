@@ -1,0 +1,20 @@
+{
+  "name": "true-estate",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000t\u0000r\u0000u\u0000e\u0000-\u0000e\u0000s\u0000t\u0000a\u0000t\u0000e\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Grady253/true-estate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Grady253/true-estate/issues"
+  },
+  "homepage": "https://github.com/Grady253/true-estate#readme"
+}
