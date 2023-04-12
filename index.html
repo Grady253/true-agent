@@ -7,21 +7,24 @@
     <link rel="stylesheet" href="./Assests/style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-    <title>True Estate</title>
+    <title>True Agent</title>
 </head>
 <body>
     <div class="container">
-        <h1 class="title-header">True <span id="title-header-middle">Estate</span> App</h1>
-        <h3 class="subtitle-header"> Find your dream property nationwide.</h3>
+        <h1 class="title-header">True <span id="title-header-middle">Agent</span> App</h1>
+        <h3 class="subtitle-header"> Find your agent for your dream property nationwide.</h3>
         <div class="user-form">
             <form>
-                <label for="state">Location:</label>
-                <input type="text" id="location" placeholder="Enter a location of property."/><br/>
+                <label for="location">Zip Code:</label>
+                <input type="number" id="zipCode" placeholder="Enter a zip Code."/><br/>
             </form>
             <button class="search-btn" type="submit"> Search</button>
-            <div class="property-display"></div>
+            <div class="property-display">
+
+            </div>
         </div>
     </div>
     <script src="./Assests/server.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 </html>
