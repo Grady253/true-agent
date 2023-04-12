@@ -1,18 +1,16 @@
-const searchBtnEl = document.querySelector('.search-btn');
-const citySearchEl = document.querySelector('#location');
-const searchList = document.querySelector('ul');
+const searchBtnEl = document.querySelector(".search-btn");
+const citySearchEl = document.querySelector("#location");
+const propDisplayEl = document.querySelector("#property-display");
+const searchList = document.querySelector("ul");
 
-const apiKey = '0c869b4faac810b2e55866781d64a8a6';
+const apiKey = "0c869b4faac810b2e55866781d64a8a6";
 
-
-searchBtnEl.addEventListener('click', () => {
-    const citySearch = citySearchEl.value;
-    getPropertyApi(citySearch);
+searchBtnEl.addEventListener("click", () => {
+  const citySearch = citySearchEl.value;
+  getPropertyApi(citySearch);
 });
 
-
-async function getPropertyApi(){
-
+async function getPropertyApi(citySearch) {
   const options = {
     method: 'GET',
     headers: {
@@ -20,18 +18,31 @@ async function getPropertyApi(){
       'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com'
     }
   };
-  
-  await fetch('https://realty-in-us.p.rapidapi.com/properties/list-for-sale?state_code=NY&city=New%20York%20City&offset=0&limit=20&sort=relevance', options)
+
+  await fetch(`https://realty-in-us.p.rapidapi.com/properties/detail?listing_id=${citySearch}&prop_status=for_sale`, options)
     .then(response => response.json())
-    .then( response => { 
+    .then( response => {
+      docFrag = document.createDocumentFragment();
       console.log(response);
-      for( let i = 0; i < response.listings[i].prop_type.length; i++){
-        const listItem = document.createElement('Li');
-        listItem.textContent = response.listings[i].prop_type;
-        searchList.appendChild(listItem);
+      for( let i = 0; i < response.autocomplete[i].length; i++){
+        const divEl = document.createElement('div');
+        divEl.setAttribute("class", "box is-flex container");
+
+        let template = `
+        <article >
+          <div class="content">
+            <img alt='property photo' src=${response.autocomplete[i].photo}/>
+              <h3>${response.autocomplete[i].price}</h3>
+              <h4>${response.autocomplete[i].address}</h4>
+          </div>
+        </article>
+        `;
+        divEl.innerHTML = template;
+        docFrag.append(divEl);
       };
+
     })
     .catch(err => console.error(err));
 
-};
 
+}
