@@ -1,17 +1,16 @@
 const searchBtnEl = document.querySelector(".search-btn");
 const zipSearchEl = document.querySelector("#zipCode");
 const stateSearchEl = document.querySelector("#state");
-const propDisplayEl = document.querySelector(".property-display");
 const searchList = document.querySelector("ul");
 
 const apiKey = "44a9dd568emshc2dbe79a2be69f1p1adfdejsnec1e21b078cd";
 
 searchBtnEl.addEventListener("click", () => {
   const zipCode = zipSearchEl.value;
-  getPropertyApi(zipCode);
+  getAgentApi(zipCode);
 });
 
-async function getPropertyApi(zipCode) {
+async function getAgentApi(zipCode) {
   const options = {
     method: "GET",
     headers: {
@@ -30,13 +29,14 @@ async function getPropertyApi(zipCode) {
 }
 
 function displayData(data) {
-  console.log(data.agents);
+  const propDisplayEl = document.querySelector(".property-display");
   for (let i = 0; i < data.agents.length; i++) {
+    console.log(data.agents[i].full_name);
     let template = `
-        <ul>
-          <li>${data.agents.email}</li>
-        </ul>
+      <div>
+        <p>${data.agents[i].full_name}</p>
+      </div>
      `;
-    document.body.innerHTML = template;
-  }
-}
+    propDisplayEl.innerHTML = template;
+  };
+};
