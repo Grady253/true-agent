@@ -75,6 +75,12 @@ input{
 
 }
 
+#agent-Pic{
+    height: 150px;
+    width: 80px;
+    object-fit: scale-down;
+}
+
 footer{
     text-align: center;
     position: fixed;
