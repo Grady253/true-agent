@@ -20,7 +20,7 @@ async function getAgentApi(zipCode) {
   };
 
   await fetch(
-    `https://realty-in-us.p.rapidapi.com/agents/list?postal_code=${zipCode}&limit=10&types=agent`,
+    `https://realty-in-us.p.rapidapi.com/agents/list?postal_code=${zipCode}&limit=12&types=agent`,
     options
   )
     .then((response) => response.json())
