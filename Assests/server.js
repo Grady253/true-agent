@@ -31,12 +31,19 @@ async function getAgentApi(zipCode) {
 function displayData(data) {
   const propDisplayEl = document.querySelector(".property-display");
   for (let i = 0; i < data.agents.length; i++) {
-    console.log(data.agents[i].full_name);
+    let divEl = document.createElement("div");
+    console.log(data.agents[i]);
+    console.log(data.agents[i].full_name,data.agents[i].email );
     let template = `
-      <div>
-        <p>${data.agents[i].full_name}</p>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">${data.agents[i].full_name}</h5>
+        <p class="card-text">Agent Rating:${data.agents[i].agent_rating}</p>
+        <a href="mailto:${data.agents[i].email}" class="btn btn-primary">Contact Me</a>
       </div>
+    </div>
      `;
-    propDisplayEl.innerHTML = template;
+     divEl.innerHTML = template;
+    propDisplayEl.append(divEl);
   };
-};
+}

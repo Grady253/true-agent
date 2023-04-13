@@ -68,5 +68,7 @@ input{
 }
 
 .property-display{
-    grid-template-rows: auto ;
+    grid-template-rows: 3;
+    display: flex;
+    justify-content: center;
 }
