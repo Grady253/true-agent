@@ -69,16 +69,20 @@ input{
 
 .property-display{
     display: grid;
-    grid-template-columns: auto auto auto ;
+    grid-template-columns: auto auto auto auto ;
     column-gap: 20px;
     row-gap: 20px;
 
 }
+.card{
+    display: flex;
+}
 
 #agent-Pic{
-    height: 150px;
-    width: 80px;
-    object-fit: scale-down;
+    height: 180px;
+    width: 150px;
+    object-fit: fill;
+    background-color: rgb(226, 224, 224);
 }
 
 footer{

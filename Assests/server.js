@@ -20,7 +20,7 @@ async function getAgentApi(zipCode) {
   };
 
   await fetch(
-    `https://realty-in-us.p.rapidapi.com/agents/list?postal_code=${zipCode}&limit=12&types=agent`,
+    `https://realty-in-us.p.rapidapi.com/agents/list?postal_code=${zipCode}&limit=24&types=agent`,
     options
   )
     .then((response) => response.json())
@@ -38,8 +38,9 @@ function displayData(data) {
       <div class="card-body">
         <img id='agent-Pic' src="${data.agents[i].photo.href}" class="card-img-top" alt="Agents picture">
         <h5 class="card-title">${data.agents[i].full_name}</h5>
-        <p class="card-text">Agent Rating:${data.agents[i].agent_rating}</p>
-        <a href="mailto:${data.agents[i].email}" class="btn btn-primary">Contact Me</a>
+        <p class="card-text">Agent Type: ${data.agents[i].agent_type}</p>
+        <p class="card-text">Agent Rating: ${data.agents[i].agent_rating}</p>
+        <a href="mailto:${data.agents[i].email}" class="btn btn-danger">Contact Me</a>
       </div>
     </div>
      `;
