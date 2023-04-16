@@ -44,7 +44,7 @@ input{
 }
 
 #zipCode{
-    width: 200px;
+    width: 180px;
     height: 30px;
 }
 
@@ -72,6 +72,7 @@ input{
     grid-template-columns: auto auto auto auto ;
     column-gap: 20px;
     row-gap: 20px;
+    padding-bottom: 20px;
 
 }
 .card{
@@ -86,8 +87,8 @@ input{
 }
 
 footer{
-    text-align: center;
     position: fixed;
+    text-align: center;
     bottom: 0;
     width: 100%;
 }
