@@ -1,7 +1,7 @@
 const searchBtnEl = document.querySelector(".search-btn");
 const zipSearchEl = document.querySelector("#zipCode");
 const stateSearchEl = document.querySelector("#state");
-const searchList = document.querySelector("ul");
+
 
 const apiKey = "44a9dd568emshc2dbe79a2be69f1p1adfdejsnec1e21b078cd";
 
